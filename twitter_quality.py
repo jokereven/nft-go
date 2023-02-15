@@ -16,6 +16,7 @@ headers = {
 }
 
 
+# 获取 twitter_id
 def get_twitter_id(contract_address):
     url = "https://api.catchmint.xyz/contracts/" + contract_address
     try:
@@ -37,6 +38,7 @@ def get_twitter_id(contract_address):
         print(f'[get_twitter_id] failed error: {e}')
 
 
+# 通过 twitter_id 获取 twitter quality
 def get_twitter_quality(twitter_id):
     params = {
         'screen_name': twitter_id,
@@ -45,12 +47,18 @@ def get_twitter_quality(twitter_id):
     try:
         response = requests.get(
             url, params=params, headers=headers, verify=False)
+        print(response.text)
         if response.status_code == 200:
             quality = response.json()
-            tweets = quality['user']['tweets']
-            print(tweets)
+            print(quality)
     except Exception as e:
         print(f'[get_twitter_quality] failed error: {e}')
 
 
-get_twitter_id("0x3b1fbe997c2253cffa975c066fa3feec326337dd")
+# Proof of Cheese
+# https://opensea.io/collection/proof-of-cheese
+# get_twitter_id("0x06971F85c9e0Ba82e9bc4c7bE54f601ddEd00835")
+
+# FIXME
+# get_twitter_quality("proof_of_cheese")
+# {"error":"Not authorized currently"}
