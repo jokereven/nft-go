@@ -1,6 +1,5 @@
 # 1. 通过和合于地址获取twitter id
-# 2. todo
-# 3. todo
+# 2. 通过 twitter id 获取 twitter 质量
 
 import time
 import random
